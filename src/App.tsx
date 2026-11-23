@@ -47,7 +47,7 @@ export default function App() {
       <div className="flex min-h-full flex-col">
         <Header onHome={() => go(null)} onAbout={() => go('about')} showHome={route !== null} />
         <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-12 pt-6 md:pt-8">
-          {route === 'about' ? <About home={() => go(null)} /> : route ? <ModulePage id={route} home={() => go(null)} /> : <Dashboard open={go} about={() => go('about')} />}
+          {route === 'about' ? <About home={() => go(null)} /> : route ? <ModulePage id={route} home={() => go(null)} /> : <Dashboard open={go} />}
         </main>
         <Footer onAbout={() => go('about')} />
       </div>

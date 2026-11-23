@@ -18,8 +18,8 @@ export const SITE = {
       tr: 'ICT Öğretmeni Asil Aksoy tarafından yapay zekâ desteğiyle geliştirilmiştir.',
     },
     long: {
-      en: 'This platform was developed by Asil Aksoy, ICT Teacher, with the assistance of artificial intelligence (Claude, by Anthropic). The teacher planned the project, set the requirements and directed the content; AI was used to write the code and to draft the learning material and questions.',
-      tr: 'Bu platform, ICT Öğretmeni Asil Aksoy tarafından yapay zekâ (Anthropic’in Claude modeli) desteğiyle geliştirilmiştir. Projeyi öğretmen planlamış, gereksinimleri belirlemiş ve içeriği yönlendirmiştir; kodun yazılmasında ve ders içeriği ile soruların taslağının hazırlanmasında yapay zekâ kullanılmıştır.',
+      en: 'I developed this site with the help of artificial intelligence (Claude, by Anthropic). The code and the first drafts of the explanations and questions were produced with AI; I decided the topics, the structure and the changes.',
+      tr: 'Bu siteyi yapay zekâ (Anthropic’in Claude modeli) desteğiyle geliştirdim. Kod ile konu anlatımlarının ve soruların ilk taslakları yapay zekâ ile hazırlandı; konuları, yapıyı ve yapılacak değişiklikleri ben belirledim.',
     },
   },
 }

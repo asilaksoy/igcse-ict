@@ -4,11 +4,10 @@ import { BiText } from '../components/Bilingual'
 import { Button } from '../components/ui'
 import { Icon } from '../components/Icon'
 
-function Block({ icon, en, tr, children }: { icon: string; en: string; tr: string; children: ReactNode }) {
+function Block({ en, tr, children }: { en: string; tr: string; children: ReactNode }) {
   return (
     <section className="card p-5 md:p-6">
-      <h2 className="mb-3 flex items-center gap-2 text-xl font-bold">
-        <Icon name={icon} className="size-5 text-cyan-glow" />
+      <h2 className="mb-3 text-lg font-bold">
         {en} <span className="font-medium text-tr">· {tr}</span>
       </h2>
       {children}
@@ -23,47 +22,71 @@ export function About({ home }: { home: () => void }) {
         About <span className="text-tr">· Hakkında</span>
       </h1>
 
-      <Block icon="spark" en="Who made this & how" tr="Kim, nasıl geliştirdi">
-        <BiText t={SITE.ai.long} />
+      <Block en="What is this site?" tr="Bu site nedir?">
+        <BiText
+          t={{
+            tr: 'ICT Networks, Cambridge IGCSE ICT (0417) dersinin 4. konusu olan Ağlar için hazırladığım iki dilli bir çalışma sitesidir. İlk olarak kendi derslerimde öğrencilerimin tabletlerinden kullanması için yaptım. Türkçe destekli etkileşimli ICT kaynağı az olduğu için herkesin kullanımına açtım.',
+            en: 'ICT Networks is a bilingual study site for Topic 4 (Networks) of Cambridge IGCSE ICT (0417). I first made it for my own lessons, so my students could use it on their tablets. As there are few interactive ICT resources with Turkish support, I have made it open to everyone.',
+          }}
+        />
         <p className="mt-3 text-sm text-ink-400">
-          {SITE.author.name} – {SITE.author.role.en} · {SITE.author.role.tr}
+          {SITE.author.name} – {SITE.author.role.tr} · {SITE.author.role.en}
         </p>
       </Block>
 
-      <Block icon="target" en="Purpose" tr="Amaç">
+      <Block en="How it was made" tr="Nasıl hazırlandı?">
+        <BiText t={SITE.ai.long} />
+      </Block>
+
+      <Block en="What it includes" tr="Neler var?">
         <BiText
           t={{
-            en: 'There are very few interactive resources for ICT. This free website helps students learn Cambridge IGCSE ICT (0417) Topic 4 – Networks – in English and Turkish, on any device, without signing up.',
-            tr: 'ICT dersi için etkileşimli kaynak çok az. Bu ücretsiz site, öğrencilerin Cambridge IGCSE ICT (0417) 4. Konu – Ağlar’ı İngilizce ve Türkçe olarak, her cihazda ve kayıt olmadan öğrenmesine yardımcı olur.',
+            tr: '8 modül. Her modülde kısa konu anlatımı, karşılaştırma tablosu veya simülasyon, eşleştirme ve senaryo etkinlikleri, test soruları ve sınav tarzı yazılı sorular bulunur.',
+            en: '8 modules. Each has short explanations, a comparison table or simulation, matching and scenario activities, quiz questions and exam-style written questions.',
           }}
         />
       </Block>
 
-      <Block icon="book" en="Licence" tr="Lisans">
-        <BiText t={SITE.license.summary} />
-        <a href={SITE.license.url} target="_blank" rel="noopener noreferrer license" className="mt-3 inline-block font-semibold text-cyan-glow">
-          {SITE.license.name} →
+      <Block en="Please note" tr="Bilmeniz gerekenler">
+        <ul className="space-y-3">
+          {[
+            {
+              tr: 'Bu site resmî bir Cambridge kaynağı değildir; Cambridge University Press & Assessment ile bağlantısı yoktur. Ders kitabının ve resmî müfredatın yerini tutmaz.',
+              en: 'This is not an official Cambridge resource and is not connected to Cambridge University Press & Assessment. It does not replace the textbook or the official syllabus.',
+            },
+            {
+              tr: 'Yazılı sorulardaki puan, cevaptaki anahtar kelimelere bakılarak verilen tahmini bir puandır. Gerçek puanlamayı öğretmen yapar.',
+              en: 'Marks for written answers are only an estimate based on key words. Real marking is done by a teacher.',
+            },
+            {
+              tr: 'İçerikte hata olabilir. Bir hata görürseniz bildirmeniz çok yardımcı olur.',
+              en: 'The content may contain mistakes. If you find one, please let me know.',
+            },
+          ].map((t, i) => (
+            <li key={i} className="flex gap-3">
+              <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-cyan-glow" />
+              <BiText t={t} />
+            </li>
+          ))}
+        </ul>
+        <a href={`${SITE.repoUrl}/issues`} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-semibold text-cyan-glow">
+          Report an error (GitHub) · Hata bildir →
         </a>
       </Block>
 
-      <Block icon="lock" en="Privacy" tr="Gizlilik">
+      <Block en="Progress and privacy" tr="İlerleme ve gizlilik">
         <BiText
           t={{
-            en: 'No account, no cookies, no tracking and no personal data. Your progress is saved only in your own browser on this device.',
-            tr: 'Hesap yok, çerez yok, takip yok ve kişisel veri yok. İlerlemen yalnızca bu cihazdaki kendi tarayıcında saklanır.',
+            tr: 'Kayıt veya giriş yoktur; ad, e-posta gibi kişisel bilgi toplanmaz. İlerleme yalnızca kullandığın cihazdaki tarayıcıda saklanır: her öğrenci kendi ilerlemesini görür, başka cihazlara veya öğretmene gönderilmez. Tarayıcı verileri silinirse ya da başka bir cihaz kullanılırsa ilerleme görünmez. Aynı tableti kullanan öğrenciler aynı ilerlemeyi görür.',
+            en: 'There is no sign-up or login, and no personal information such as names or emails is collected. Progress is stored only in the browser on the device you use: each student sees their own progress, and it is not sent to other devices or to the teacher. If browser data is cleared or another device is used, the progress will not appear. Students sharing one tablet will see the same progress.',
           }}
         />
       </Block>
 
-      <Block icon="shield" en="Important notes" tr="Önemli notlar">
-        <BiText
-          t={{
-            en: 'This is an independent resource. It is not affiliated with, or endorsed by, Cambridge University Press & Assessment. Cambridge IGCSE is a trademark of Cambridge University Press & Assessment. Always check the official syllabus. Because AI helped prepare the material, mistakes are possible – please report any error you find.',
-            tr: 'Bu bağımsız bir kaynaktır; Cambridge University Press & Assessment ile bağlantılı değildir ve onun tarafından onaylanmamıştır. Cambridge IGCSE, Cambridge University Press & Assessment’ın tescilli markasıdır. Her zaman resmî müfredatı kontrol edin. Materyalin hazırlanmasında yapay zekâ kullanıldığı için hatalar olabilir – bulduğunuz hataları lütfen bildirin.',
-          }}
-        />
-        <a href={`${SITE.repoUrl}/issues`} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block font-semibold text-cyan-glow">
-          Report an error · Hata bildir →
+      <Block en="Licence" tr="Lisans">
+        <BiText t={SITE.license.summary} />
+        <a href={SITE.license.url} target="_blank" rel="noopener noreferrer license" className="mt-3 inline-block font-semibold text-cyan-glow">
+          {SITE.license.name} →
         </a>
       </Block>
 
