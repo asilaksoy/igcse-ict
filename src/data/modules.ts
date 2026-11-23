@@ -1,10 +1,11 @@
-import type { ModuleMeta } from './types'
+import type { ModuleMeta, UnitMeta } from './types'
+import { UNIT1_3 } from './units'
 
 /**
  * The eight modules of Topic 4. Objectives follow the Cambridge IGCSE ICT 0417
  * syllabus for 2026–2028 (sections 4.1 and 4.2). No extra requirements are added.
  */
-export const MODULES: ModuleMeta[] = [
+const UNIT4: Omit<ModuleMeta, 'unit'>[] = [
   {
     id: 'network-devices',
     number: '01',
@@ -119,4 +120,15 @@ export const MODULES: ModuleMeta[] = [
   },
 ]
 
+export const UNITS: UnitMeta[] = [
+  { id: 'unit-1', number: 1, icon: 'cpu', title: { en: 'Types and components of computer systems', tr: 'Bilgisayar sistemlerinin türleri ve bileşenleri' } },
+  { id: 'unit-2', number: 2, icon: 'keyboard', title: { en: 'Input and output devices', tr: 'Giriş ve çıkış aygıtları' } },
+  { id: 'unit-3', number: 3, icon: 'disk', title: { en: 'Storage devices and media', tr: 'Depolama aygıtları ve ortamları' } },
+  { id: 'unit-4', number: 4, icon: 'lan', title: { en: 'Networks and the effects of using them', tr: 'Ağlar ve ağ kullanımının etkileri' } },
+]
+
+export const MODULES: ModuleMeta[] = [...UNIT1_3, ...UNIT4.map((m) => ({ ...m, unit: 4 }))]
+
 export const getModule = (id: string) => MODULES.find((m) => m.id === id)
+export const getUnit = (id: string) => UNITS.find((u) => u.id === id)
+export const modulesOf = (unit: number) => MODULES.filter((m) => m.unit === unit)

@@ -123,7 +123,7 @@ function CompareTableView({ c }: { c: NonNullable<ModuleContent['compare']> }) {
 }
 
 /** Every module uses this one template; only the content file differs. */
-export function GenericModule({ module, content: c, section, onSection }: { module: ModuleMeta; content: ModuleContent; section: SectionId; onSection: (s: SectionId) => void }) {
+export function GenericModule({ module, content: c, section, onSection, onBack }: { module: ModuleMeta; content: ModuleContent; section: SectionId; onSection: (s: SectionId) => void; onBack: () => void }) {
   const { completeSection, saveScore } = useProgress()
   const id = module.id
   const done = (s: SectionId) => completeSection(id, s)
@@ -140,7 +140,7 @@ export function GenericModule({ module, content: c, section, onSection }: { modu
   }
 
   return (
-    <ModuleShell module={module} section={section} onSection={onSection}>
+    <ModuleShell module={module} section={section} onSection={onSection} onBack={onBack}>
       {section === 'objectives' && (
         <div>
           <SectionTitle en="Learning objectives" tr="Öğrenme hedefleri" />

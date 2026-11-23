@@ -1,4 +1,5 @@
 import { Icon } from './Icon'
+import { SITE } from '../data/site'
 import { useLang, type LangMode } from '../hooks/useLang'
 
 export function Header({ onHome, onAbout, showHome }: { onHome: () => void; onAbout: () => void; showHome: boolean }) {
@@ -13,7 +14,7 @@ export function Header({ onHome, onAbout, showHome }: { onHome: () => void; onAb
       <div className="mx-auto flex h-16 max-w-5xl items-center gap-2 px-4">
         <button onClick={onHome} className="tap flex items-center gap-2 rounded-xl px-2 font-semibold" aria-label="Home">
           <Icon name={showHome ? 'home' : 'lan'} className="size-6 text-cyan-glow" />
-          <span className={showHome ? 'hidden sm:inline' : ''}>{showHome ? 'Home · Ana sayfa' : 'ICT Networks'}</span>
+          <span className={showHome ? 'hidden sm:inline' : ''}>{showHome ? 'Home · Ana sayfa' : SITE.name}</span>
         </button>
         <button onClick={onAbout} className="tap ml-auto rounded-xl px-3 text-sm font-semibold text-ink-300">
           About<span className="hidden sm:inline"> · Hakkında</span>

@@ -1,6 +1,6 @@
 /** Site-wide settings: author, AI disclosure, licence. Edit here to change them everywhere. */
 export const SITE = {
-  name: 'ICT Networks',
+  name: 'ICT Interactive',
   author: { name: 'Asil Aksoy', role: { en: 'ICT Teacher', tr: 'ICT Öğretmeni' } },
   year: 2026,
   repoUrl: 'https://github.com/asilaksoy/ict-networks',

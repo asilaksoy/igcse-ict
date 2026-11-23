@@ -25,6 +25,16 @@ const paths: Record<string, string> = {
   lock: 'M6 11h12v9H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3',
   tablet: 'M6 3h12v18H6zM11 18h2',
   laptop: 'M4 5h16v11H4zM2 19h20',
+  cpu: 'M7 7h10v10H7zM10 10h4v4h-4zM9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4',
+  keyboard: 'M3 6h18v12H3zM7 10h.01M11 10h.01M15 10h.01M7 14h10',
+  disk: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4z',
+  window: 'M3 5h18v14H3zM3 9h18M6 7h.01M9 7h.01',
+  monitor: 'M3 4h18v12H3zM9 20h6M12 16v4',
+  printer: 'M7 9V3h10v6M5 9h14v8H5zM8 14h8v7H8z',
+  scan: 'M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4M7 8v8M10 8v8M13 8v8M17 8v8',
+  memory: 'M4 7h16v10H4zM8 7v10M12 7v10M16 7v10M6 17v3M18 17v3',
+  vr: 'M3 8h18v8h-6l-3-3-3 3H3zM7 12h.01M17 12h.01',
+  laptop2: 'M4 5h16v11H4zM2 19h20',
   spark: 'M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6',
 }
 

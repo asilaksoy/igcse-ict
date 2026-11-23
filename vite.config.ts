@@ -20,10 +20,10 @@ export default defineConfig(({ mode }) => {
             injectRegister: 'script',
             includeAssets: ['favicon.svg', 'apple-touch-icon.png', 'robots.txt'],
             manifest: {
-              name: 'ICT Networks – IGCSE ICT 0417',
-              short_name: 'ICT Networks',
+              name: 'ICT Interactive – IGCSE ICT 0417',
+              short_name: 'ICT Interactive',
               description:
-                'Free bilingual (English/Türkçe) interactive learning platform for IGCSE ICT 0417 Networks. Developed by Asil Aksoy, ICT Teacher, with AI assistance.',
+                'Free bilingual (English/Türkçe) interactive learning site for Cambridge IGCSE ICT 0417. Developed by Asil Aksoy, ICT Teacher, with AI assistance.',
               theme_color: '#071122',
               background_color: '#071122',
               display: 'standalone',

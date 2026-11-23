@@ -2,19 +2,21 @@ import { useEffect, useState } from 'react'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { Dashboard } from './pages/Dashboard'
+import { UnitPage } from './pages/UnitPage'
 import { ModulePage } from './pages/ModulePage'
 import { About } from './pages/About'
 import { LangProvider } from './hooks/useLang'
-import { getModule } from './data/modules'
+import { UNITS, getModule, getUnit } from './data/modules'
+import { SITE } from './data/site'
 
 /**
  * Hash routing with plain names so every page has a shareable link:
- *   (empty) = home, #about, #network-devices, #cloud-computing, ...
+ *   (empty) = home, #about, #unit-1 … #unit-4, #<module-id>
  */
 type Route = string | null
 const readHash = (): Route => {
   const h = decodeURIComponent(window.location.hash.replace(/^#\/?/, ''))
-  return h === 'about' || getModule(h) ? h : null
+  return h === 'about' || getModule(h) || getUnit(h) ? h : null
 }
 
 export default function App() {
@@ -26,10 +28,18 @@ export default function App() {
     return () => window.removeEventListener('hashchange', on)
   }, [])
 
+  const unit = route ? getUnit(route) : undefined
+  const module = route ? getModule(route) : undefined
+
   useEffect(() => {
-    const m = route && route !== 'about' ? getModule(route) : null
-    document.title = m ? `${m.title.en} – ${m.title.tr} | ICT Networks` : route === 'about' ? 'About – Hakkında | ICT Networks' : 'ICT Networks – IGCSE ICT 0417 | Ağlar'
-  }, [route])
+    document.title = module
+      ? `${module.title.en} – ${module.title.tr} | ${SITE.name}`
+      : unit
+        ? `Unit ${unit.number}: ${unit.title.en} | ${SITE.name}`
+        : route === 'about'
+          ? `About – Hakkında | ${SITE.name}`
+          : `${SITE.name} – Cambridge IGCSE ICT 0417 | İngilizce ve Türkçe`
+  }, [route, module, unit])
 
   const go = (id: Route) => {
     setRoute(id)
@@ -47,7 +57,15 @@ export default function App() {
       <div className="flex min-h-full flex-col">
         <Header onHome={() => go(null)} onAbout={() => go('about')} showHome={route !== null} />
         <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-12 pt-6 md:pt-8">
-          {route === 'about' ? <About home={() => go(null)} /> : route ? <ModulePage id={route} home={() => go(null)} /> : <Dashboard open={go} />}
+          {route === 'about' ? (
+            <About home={() => go(null)} />
+          ) : unit ? (
+            <UnitPage unit={unit} open={go} />
+          ) : module ? (
+            <ModulePage id={module.id} back={() => go(UNITS.find((u) => u.number === module.unit)!.id)} />
+          ) : (
+            <Dashboard open={go} />
+          )}
         </main>
         <Footer onAbout={() => go('about')} />
       </div>

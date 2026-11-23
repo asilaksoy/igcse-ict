@@ -25,8 +25,8 @@ export function About({ home }: { home: () => void }) {
       <Block en="What is this site?" tr="Bu site nedir?">
         <BiText
           t={{
-            tr: 'ICT Networks, Cambridge IGCSE ICT (0417) dersinin 4. konusu olan Ağlar için hazırladığım iki dilli bir çalışma sitesidir. İlk olarak kendi derslerimde öğrencilerimin tabletlerinden kullanması için yaptım. Türkçe destekli etkileşimli ICT kaynağı az olduğu için herkesin kullanımına açtım.',
-            en: 'ICT Networks is a bilingual study site for Topic 4 (Networks) of Cambridge IGCSE ICT (0417). I first made it for my own lessons, so my students could use it on their tablets. As there are few interactive ICT resources with Turkish support, I have made it open to everyone.',
+            tr: 'Bu site, Cambridge IGCSE ICT (0417) dersi için hazırladığım iki dilli bir çalışma sitesidir. İlk olarak kendi derslerimde öğrencilerimin tabletlerinden kullanması için yaptım. Türkçe destekli etkileşimli ICT kaynağı az olduğu için herkesin kullanımına açtım. Şu anda 1–4. üniteler var; diğer üniteleri zamanla ekleyeceğim.',
+            en: 'This is a bilingual study site for Cambridge IGCSE ICT (0417). I first made it for my own lessons, so my students could use it on their tablets. As there are few interactive ICT resources with Turkish support, I have made it open to everyone. Units 1–4 are available now; I will add the other units over time.',
           }}
         />
         <p className="mt-3 text-sm text-ink-400">
@@ -41,8 +41,8 @@ export function About({ home }: { home: () => void }) {
       <Block en="What it includes" tr="Neler var?">
         <BiText
           t={{
-            tr: '8 modül. Her modülde kısa konu anlatımı, karşılaştırma tablosu veya simülasyon, eşleştirme ve senaryo etkinlikleri, test soruları ve sınav tarzı yazılı sorular bulunur.',
-            en: '8 modules. Each has short explanations, a comparison table or simulation, matching and scenario activities, quiz questions and exam-style written questions.',
+            tr: 'Her ünite modüllere ayrılmıştır. Her modülde kısa konu anlatımı, karşılaştırma tablosu veya simülasyon, eşleştirme ve senaryo etkinlikleri, test soruları ve sınav tarzı yazılı sorular bulunur.',
+            en: 'Each unit is divided into modules. Each module has short explanations, a comparison table or simulation, matching and scenario activities, quiz questions and exam-style written questions.',
           }}
         />
       </Block>

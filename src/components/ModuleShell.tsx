@@ -14,7 +14,7 @@ export const SECTIONS: { id: SectionId; en: string; tr: string }[] = [
 ]
 
 /** Same layout for every module: title, section tabs, content, previous/next. */
-export function ModuleShell({ module, section, onSection, children }: { module: ModuleMeta; section: SectionId; onSection: (s: SectionId) => void; children: ReactNode }) {
+export function ModuleShell({ module, section, onSection, onBack, children }: { module: ModuleMeta; section: SectionId; onSection: (s: SectionId) => void; onBack: () => void; children: ReactNode }) {
   const { get } = useProgress()
   const done = get(module.id).sections
   const idx = SECTIONS.findIndex((s) => s.id === section)
@@ -22,7 +22,10 @@ export function ModuleShell({ module, section, onSection, children }: { module: 
   return (
     <div>
       <div className="mb-4">
-        <div className="text-sm text-ink-400">Module {module.number}</div>
+        <button onClick={onBack} className="tap -ml-1 flex min-h-10 items-center gap-1 text-sm text-ink-300">
+          <Icon name="back" className="size-4" /> Unit {module.unit} · Ünite {module.unit}
+        </button>
+        {module.number !== String(module.unit) && <div className="text-sm text-ink-400">{module.unit === 4 ? `Module ${module.number}` : module.number}</div>}
         <h1 className="text-3xl font-bold">{module.title.en}</h1>
         <div className="text-lg text-tr">{module.title.tr}</div>
       </div>

@@ -22,6 +22,8 @@ export type SectionId =
 
 export interface ModuleMeta {
   id: string
+  /** syllabus topic (unit) number */
+  unit: number
   number: string
   title: Bi
   summary: Bi
@@ -140,4 +142,11 @@ export interface ModuleContent {
   check: CheckQuestion[]
   exam: ExamQuestion[]
   vocab: VocabItem[]
+}
+
+export interface UnitMeta {
+  id: string
+  number: number
+  title: Bi
+  icon: string
 }
