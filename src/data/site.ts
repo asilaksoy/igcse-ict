@@ -3,7 +3,7 @@ export const SITE = {
   name: 'ICT Interactive',
   author: { name: 'Asil Aksoy', role: { en: 'ICT Teacher', tr: 'ICT Öğretmeni' } },
   year: 2026,
-  repoUrl: 'https://github.com/asilaksoy/ict-networks',
+  repoUrl: 'https://github.com/asilaksoy/igcse-ict',
   license: {
     name: 'CC BY-NC-SA 4.0',
     url: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',

@@ -1,7 +1,7 @@
-# ICT Networks – IGCSE ICT 0417 (English / Türkçe)
+# ICT Interactive – Cambridge IGCSE ICT 0417 (English / Türkçe)
 
-Free, interactive, bilingual learning website for **Cambridge IGCSE ICT (0417) – Topic 4: Networks and the effects of using them**.
-Lessons, simulations, activities, quizzes and exam-style practice for 8 modules. No sign-up, no tracking; progress is stored only in the visitor's browser.
+Free, interactive, bilingual learning website for **Cambridge IGCSE ICT (0417)**.
+Lessons, simulations, activities, quizzes and exam-style practice. Units 1–4 are available (17 modules); more units will be added. No sign-up, no tracking; progress is stored only in the visitor's browser.
 
 > **Developed by Asil Aksoy, ICT Teacher, with AI assistance (Claude, by Anthropic).**
 > The teacher planned the project, set the requirements and directed the content; AI was used to write the code and draft the learning material.
@@ -10,8 +10,11 @@ Lessons, simulations, activities, quizzes and exam-style practice for 8 modules.
 
 Not affiliated with or endorsed by Cambridge University Press & Assessment. Found a mistake? Please [open an issue](../../issues).
 
-## Modules
-01 Network Devices · 02 Wireless Technologies · 03 Cloud Computing · 04 Common Network Environments · 05 Network Types · 06 Network Issues and Security · 07 Authentication Methods · 08 Electronic Conferencing
+## Units
+1. Types and components of computer systems – 1.1 Hardware and software · 1.2 Main components · 1.3 Operating systems · 1.4 Types of computer · 1.5 Emerging technologies
+2. Input and output devices – 2.1 Input devices · 2.2 Direct data entry · 2.3 Output devices
+3. Storage devices and media
+4. Networks and the effects of using them – network devices, Wi-Fi and Bluetooth, cloud computing, internet/intranet/extranet, LAN/WLAN/WAN, security, authentication, electronic conferencing
 
 ## Run locally
 ```bash
@@ -27,7 +30,7 @@ npm run preview    # serve dist/ locally
 3. Every push to `main` redeploys automatically. HTTPS is automatic, so the site can be installed on tablets and works offline after the first visit.
 
 ## Editing content
-Each module's text and questions live in one file: `src/modules/<module>/content.ts`.
+Each module's text and questions live in one file: `src/modules/<module>/content.ts`. Units and module list: `src/data/modules.ts` and `src/data/units.ts`.
 Author name, AI disclosure and licence: `src/data/site.ts`.
 
 ## Tech
